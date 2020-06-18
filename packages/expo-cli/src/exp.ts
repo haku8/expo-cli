@@ -316,6 +316,13 @@ Command.prototype.asyncActionProjectDir = function (
   });
 };
 
+Command.prototype.requiredOption = Command.prototype.option;
+Command.prototype.scopedOption = function () {
+  this.allowUnknownOption();
+  const [scope, flag, ...args] = arguments;
+  return this;
+};
+
 function runAsync(programName: string) {
   try {
     // Setup analytics
